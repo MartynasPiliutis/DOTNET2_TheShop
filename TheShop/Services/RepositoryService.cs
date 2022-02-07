@@ -13,7 +13,7 @@ namespace TheShop
             }
 
         }
-        public List<Products> LoadBackendProductsList(List<Products> drinks, List<Products> vegetables, List<Products> sweets, List<Products> meat)
+        public List<Products> ListLoadAllProductToReview(List<Products> drinks, List<Products> vegetables, List<Products> sweets, List<Products> meat)
         {
             List<Products> backendList = new();
             AddProductsToList(drinks, backendList);

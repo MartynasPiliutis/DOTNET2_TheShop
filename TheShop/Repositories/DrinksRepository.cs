@@ -2,7 +2,7 @@
 
 namespace TheShop
 {
-    internal class DrinksRepository
+    public class DrinksRepository
     {
         public readonly List<Products> drinks;
 

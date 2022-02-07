@@ -2,7 +2,7 @@
 {
     public class UserService
     {
-        public int UserValletCheckWhenEnterTheShop(double userMoney)
+        public int UserServiceCheckIfUserHasMoney(double userMoney)
         {
             int actionCode;
             double credit = userMoney;
