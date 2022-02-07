@@ -94,10 +94,9 @@ namespace TheShop
                             cartService.UserShoppingCartAdd(listToSelectProductsFrom, item.ProductBarcode, quantityToAddToCart);
                         }
                     }
-                    cartService.PrintShoppingCart();
-                    Console.ReadKey();
                     Console.Clear();
                     cartService.PrintShoppingCartAdvanced();
+                    Console.WriteLine("Product added. Pressany key to continue...");
                     Console.ReadKey();
                     Console.Clear();
                 }
@@ -188,7 +187,7 @@ namespace TheShop
                 else
                 {
                     Console.Clear();
-                    productRemovedSucess = cartService.UserShoppingCartRemove(userSelectionInput);
+                    productRemovedSucess = cartService.UserShoppingCartRemove(userSelectionInput, cartService.userShoppingCart);
                     cartService.PrintShoppingCartAdvanced();
                     if (productRemovedSucess != "")
                     {
@@ -196,17 +195,17 @@ namespace TheShop
                         Console.WriteLine("Press any key to return to main menu...");
                         Console.ReadKey();
                     }
-                else
-                {
-                    Console.WriteLine("No products were removed from the shopping cart...");
-                    Console.WriteLine("Press any key to return to main menu...");
-                    Console.ReadKey();
-                }
-                
-            }
-            return 0;
-        }
-    }
+                    else
+                    {
+                        Console.WriteLine("No products were removed from the shopping cart...");
+                        Console.WriteLine("Press any key to return to main menu...");
+                        Console.ReadKey();
+                    }
 
-}
+                }
+                return 0;
+            }
+        }
+
+    }
 }

@@ -22,14 +22,15 @@ namespace TheShop
             }
         }
 
-        public string UserShoppingCartRemove(int productBarcode)
+        public string UserShoppingCartRemove(int productBarcode, List<ShoppingCart> shoppingCartListTomodify)
         {
             string messageSuccess = "";
-            foreach (var item in userShoppingCart)
+            Console.WriteLine(productBarcode);
+            for (int i = 0; i < shoppingCartListTomodify.Count; i++)
             {
-                if (item.ProductToBuyBarcode == productBarcode)
+                if (shoppingCartListTomodify.ElementAt<ShoppingCart>(i).ProductToBuyBarcode == productBarcode)
                 {
-                    userShoppingCart.Remove(item);
+                    shoppingCartListTomodify.RemoveAt(i);
                     messageSuccess = "Selected product removed";
                 }
             }
