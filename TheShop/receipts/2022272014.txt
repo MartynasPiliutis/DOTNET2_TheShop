@@ -1,0 +1,14 @@
+Product name
+Product Barcode
+Quantity To Buy
+Price / Unit
+Price
+Cola
+37465701
+2
+2/ltr
+4
+
+Total sum to pay:4
+
+2022-02-07 20:14:19

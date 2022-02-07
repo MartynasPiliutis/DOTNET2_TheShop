@@ -46,10 +46,11 @@ namespace TheShop
                 string productClass = Convert.ToString(theGoods[i, 1]);
                 int productBarcode = Convert.ToInt32(theGoods[i, 2]);
                 double productQuantity = Convert.ToDouble(theGoods[i, 3]);
-                string productUnits = Convert.ToString(theGoods[i,4]);
+                string productUnits = Convert.ToString(theGoods[i, 4]);
                 double productPrice = Convert.ToDouble(theGoods[i, 5]);
                 productsList.Add(new Products(productName, productClass, productBarcode, productQuantity, productUnits, productPrice));
             }
         }
+
     }
 }

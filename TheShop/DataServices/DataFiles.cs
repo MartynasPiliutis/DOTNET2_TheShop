@@ -13,5 +13,6 @@ namespace TheShop
         public static readonly string meatFile = Path.GetFullPath(@"..\..\..\csvs\meat.csv");
         public static readonly string sweetsFile = Path.GetFullPath(@"..\..\..\csvs\sweets.csv");
         public static readonly string vegetablesFile = Path.GetFullPath(@"..\..\..\csvs\vegetables.csv");
+        public static readonly string receipts = Path.GetFullPath(@"..\..\..\receipts\");
     }
 }

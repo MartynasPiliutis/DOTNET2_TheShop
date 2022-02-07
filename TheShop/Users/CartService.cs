@@ -88,12 +88,30 @@ namespace TheShop
         public void UserShoppingReceipt()
         {
             Console.Clear();
+            DateTime currentTime = new();
             double sumTotal = UserShoppingCartTotalSumToPay();
             PrintShoppingCartAdvanced();
             Console.WriteLine();
             Console.Write($"Total sum to pay:");
             Console.SetCursorPosition(80, Console.CursorTop);
             Console.WriteLine($"{sumTotal}");
+            Console.WriteLine();
+            currentTime = DateTime.Now;
+            Console.WriteLine($"{currentTime}");
+        }
+
+        public void UserShoppingReceiptPrintToFile()
+        {
+            Console.Clear();
+            DateTime currentTime = new();
+            double sumTotal = UserShoppingCartTotalSumToPay();
+            PrintShoppingCart();
+            Console.WriteLine();
+            Console.Write($"Total sum to pay: ");
+            Console.WriteLine($"{sumTotal}");
+            Console.WriteLine();
+            currentTime = DateTime.Now;
+            Console.WriteLine($"{currentTime}");
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace TheShop
 {
@@ -68,7 +69,48 @@ namespace TheShop
                 else if (userMainMenuSelection == 5)
                 {
                     cartService.UserShoppingReceipt();
-                    Environment.Exit(0);
+                    Console.WriteLine();
+                    Console.WriteLine("Would you like to buy these products?");
+                    Console.WriteLine("To buy pres [y]. If you want to drop the cart and leave, pres [n]");
+                    Console.Write("Your input: ");
+                    string finalResponse = Convert.ToString(Console.ReadKey().KeyChar);
+                    if (finalResponse == "n" || finalResponse == "N")
+                    {
+                        Environment.Exit(0);
+                    }
+                    else if (finalResponse == "y" || finalResponse == "Y")
+                    {
+                        double totalSum = cartService.UserShoppingCartTotalSumToPay();
+                        double userCashAvailable = userWalletTemp;
+                        if (userCashAvailable >= totalSum)
+                        {
+                            cartService.UserShoppingReceipt();
+                            Console.WriteLine();
+                            Console.WriteLine("Thank you dfor buying. Your receipt above.");
+                            Console.WriteLine($"Your balance: {userCashAvailable - totalSum}");
+                            DateTime timeForFileName = new();
+                            timeForFileName = DateTime.Now;
+                            string filename = timeForFileName.Year.ToString()+ timeForFileName.Month.ToString() + timeForFileName.Day.ToString() + timeForFileName.Hour.ToString() + timeForFileName.Minute.ToString();
+                            filename = filename + ".txt";
+                            string path = DataFiles.receipts + filename;
+                            FileStream fs = new FileStream(path, FileMode.Create);
+                            TextWriter tmpTxt = Console.Out;
+                            StreamWriter sw = new StreamWriter(fs);
+                            Console.SetOut(sw);
+                            cartService.UserShoppingReceiptPrintToFile();
+                            Console.SetOut(tmpTxt);
+                            sw.Close();
+                            Console.WriteLine("Press any key to exit.");
+                            Console.ReadKey();
+                            Environment.Exit(0);
+
+                        }
+                    }
+                    else
+                    {
+                        userProductsListMenuSelection = 5;
+                        LoadMenuToAddProductsToCart(repositoryService, drinksRepository, meatRepository, sweetsRepository, vegetablesRepository, userProductsListMenuSelection, userWalletTemp, cartService);
+                    }
                 }
 
                 Console.WriteLine();
